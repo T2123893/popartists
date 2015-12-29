@@ -1,0 +1,56 @@
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css';
+@import 'variables';
+
+@mixin fa($icon, $color:"#333") {
+    font: 12px FontAwesome;
+    content: $icon;
+    color: #{$color};
+}
+
+table {
+    width: $table-width;
+}
+
+tbody {
+    background-color: $table-background;
+    border: $table-border;
+    td {
+        padding: $table-td-padding;
+    }
+}
+
+thead {
+    background-color: $table-head-background;
+
+    th {
+        padding: $table-td-padding;
+
+        &.gender, &.age, &.rate {
+            width: $table-th-narrow-width;
+        }
+
+        span.sort {
+            &:before {
+               @include fa($ic-sort, #ccc);
+            }
+            &-asc:before {
+                @include fa($ic-sort-asc);
+            }
+            &-desc:before {
+                @include fa($ic-sort-desc);
+            }
+        }
+
+        span.sort, span.sort-asc, span.sort-desc {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        input {
+            width: $table-th-input-width;
+        }
+    }
+}
+
+
